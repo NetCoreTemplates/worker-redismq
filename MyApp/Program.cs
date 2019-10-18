@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ServiceStack;
 using ServiceStack.Messaging;
-using ServiceStack.Testing;
 using ServiceStack.Messaging.Redis;
 using ServiceStack.Redis;
 using MyApp.ServiceModel;
@@ -23,7 +22,7 @@ namespace MyApp
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    AppHost = new BasicAppHost(typeof(MyService).Assembly)
+                    AppHost = new GenericAppHost(typeof(MyService).Assembly)
                     {
                         ConfigureAppHost = host =>
                         {
