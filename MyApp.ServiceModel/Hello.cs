@@ -1,15 +1,21 @@
-﻿using ServiceStack;
+﻿using System.Runtime.Serialization;
+using ServiceStack;
 
-namespace MyApp.ServiceModel
+namespace MyApp.ServiceModel;
+
+[DataContract]
+public class Hello : IReturn<HelloResponse>
 {
-    public class Hello : IReturn<HelloResponse>
-    {
-        public string Name { get; set; }
-    }
+    [DataMember]
+    public string Name { get; set; }
+}
 
-    public class HelloResponse
-    {
-        public string Result { get; set; }
-        public ResponseStatus ResponseStatus { get; set; }
-    }
+[DataContract]
+public class HelloResponse
+{
+    [DataMember]
+    public string Result { get; set; }
+
+    [DataMember]
+    public ResponseStatus ResponseStatus { get; set; }
 }
