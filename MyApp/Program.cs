@@ -29,9 +29,10 @@ public class Program
             {
                 services.AddSingleton<IRedisClientsManager>(
                     new RedisManagerPool(hostContext.Configuration.GetConnectionString("RedisMq")));
-                services.AddSingleton<IMessageService>(c => new RedisMqServer(c.Resolve<IRedisClientsManager>()) {
-                    DisablePublishingToOutq = true,
-                });
+                services.AddSingleton<IMessageService>(c => 
+                    new RedisMqServer(c.GetRequiredService<IRedisClientsManager>()) {
+                        DisablePublishingToOutq = true,
+                    });
                 services.AddHostedService<MqWorker>();
             });
 }

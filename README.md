@@ -1,16 +1,13 @@
 # worker-redismq
 
-.NET 8.0 [Redis MQ](https://docs.servicestack.net/redis-mq) Worker Service
+.NET 10.0 [Redis MQ](https://docs.servicestack.net/redis-mq) Worker Service
 
-> Browse [source code](https://github.com/NetCoreTemplates/worker-redismq) and install with [dotnet-new](https://docs.servicestack.net/dotnet-new):
+> Browse [source code](https://github.com/NetCoreTemplates/worker-redismq):
 
-    $ dotnet tool install -g x
+```bash
+npx create-net worker-redismq ProjectName
+```
 
-    $ x new worker-redismq ProjectName
+## Jumpstart with Copilot
 
-Alternatively write new project files directly into an empty repository, using the Directory Name as the ProjectName:
-
-    $ git clone https://github.com/<User>/<ProjectName>.git
-    $ cd <ProjectName>
-    $ x new worker-redismq
-
+Instantly [scaffold a new App with this template](https://github.com/new?template_name=worker-redismq&template_owner=NetCoreTemplates) using GitHub Copilot, just describe the features you want and watch Copilot build it!
