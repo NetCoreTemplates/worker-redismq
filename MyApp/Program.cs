@@ -25,10 +25,10 @@ public class Program
 
     static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-            .ConfigureServices((hostContext, services) =>
+            .ConfigureServices((context, services) =>
             {
                 services.AddSingleton<IRedisClientsManager>(
-                    new RedisManagerPool(hostContext.Configuration.GetConnectionString("RedisMq")));
+                    new RedisManagerPool(context.Configuration.GetConnectionString("RedisMq")));
                 services.AddSingleton<IMessageService>(c => 
                     new RedisMqServer(c.GetRequiredService<IRedisClientsManager>()) {
                         DisablePublishingToOutq = true,
